@@ -1,0 +1,29 @@
+{
+  "name": "csvToMongdbImport",
+  "version": "0.0.0",
+  "description": "Import houses data set from csv file to MongoDB using Nodejs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vitosbat/csvToMongdbImport.git"
+  },
+  "keywords": [
+    "CSV",
+    "MongoDB",
+    "Nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitosbat/csvToMongdbImport/issues"
+  },
+  "homepage": "https://github.com/vitosbat/csvToMongdbImport",
+
+  "dependencies":{
+    "csv": "0.3.*",
+    "mongodb": "0.9.9-8"    
+  }
+}
