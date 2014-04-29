@@ -16,7 +16,7 @@ csv()
     if (err) throw err;
 
     for (var i = 1; i < importData.length; i++) {
-      var house = new House({
+      var newHouse = new House({
         country: importData[i][0],
         zip: importData[i][1],
         region: importData[i][2],
@@ -31,12 +31,16 @@ csv()
         max_floor:importData[i][11],
         flats:importData[i][12]
       });
-
-      // TODO: Checking exists houses
-
-      house.save();
-      console.log("Импортировано " + i + " адресов");
+      // Checking exists houses
+      House.findOne({"city": newHouse.city, "street": newHouse.street, "num_house": newHouse.num_house}).exec(function (err, house) {
+        if (house) {
+          console.log(house.city + ", " + house.street + ", " + house.num_house + ": существует.");
+        } else {
+          newHouse.save();
+          console.log(newHouse.city + ", " + newHouse.street + ", " + newHouse.num_house + ": сохранен!");
+        }
+      });
     }
-
+    // mongoose.connection.close();
   });  
 });
