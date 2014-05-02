@@ -31,6 +31,7 @@ csv()
         max_floor:importData[i][11],
         flats:importData[i][12]
       });
+
       // Checking exists houses
       House.findOne({"city": newHouse.city, "street": newHouse.street, "num_house": newHouse.num_house}).exec(function (err, house) {
         if (house) {
@@ -41,6 +42,6 @@ csv()
         }
       });
     }
-    // mongoose.connection.close();
-  });  
+  });
+    
 });
